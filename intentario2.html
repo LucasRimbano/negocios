@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventario deportivo · Plantilla 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fuente Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        Tu<span>Marca</span>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline">Inicio</a>
+        <a href="inventario.html" class="btn btn-outline">Inventario 1</a>
+        <button class="btn btn-outline" id="themeToggle">Modo claro</button>
+      </div>
+    </header>
+
+    <!-- HERO ESTILO MARCA DEPORTIVA -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">
+          Catálogo deportivo <span>Estilo Marca</span>
+        </h1>
+        <p class="hero-subtitle">
+          Ideal para mostrar lanzamientos de zapatillas, indumentaria urbana y colecciones cápsula.
+          Un diseño más visual, pensado para marcas, showrooms y tiendas online.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Sneakers</span>
+          <span class="tag">Ropa urbana</span>
+          <span class="tag">Lanzamientos</span>
+        </div>
+
+        <div class="hero-cta">
+          <button class="btn btn-primary">
+            Ver colección destacada
+          </button>
+          <button class="btn btn-outline">
+            Consultar por WhatsApp
+          </button>
+        </div>
+
+        <p class="hero-note">
+          Podés usar esta plantilla para una marca propia, una tienda multimarca o un showroom.
+        </p>
+      </div>
+
+      <div class="hero-image">
+        <!-- Cambiás esta imagen por una tuya si querés -->
+        <div
+          class="hero-image-inner"
+          style="background-image:url('https://images.pexels.com/photos/7671166/pexels-photo-7671166.jpeg?auto=compress&cs=tinysrgb&w=1200');"
+        >
+          <div class="badge">
+            <div><strong>Nueva colección</strong> · Temporada</div>
+            <div class="badge-subtitle">
+              Zapatillas y outfits urbanos listos para tu catálogo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLECCIÓN DESTACADA -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="pill">Colección destacada</div>
+          <h2 class="section-title">Lanzamientos y productos principales</h2>
+        </div>
+        <p class="section-subtitle">
+          Usá esta sección para mostrar tus productos estrella: zapatillas, buzos, remeras o combos.
+        </p>
+      </div>
+
+      <div class="grid-cards">
+        <!-- Producto 1 -->
+        <article class="card">
+          <img
+            src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Zapatillas urbanas"
+            class="card-img"
+            style="border-radius:0.8rem; margin-bottom:0.6rem;"
+          />
+          <div class="badge-type">Zapatillas</div>
+          <h3>Air Street Urban</h3>
+          <p>
+            Modelo urbano unisex, ideal para uso diario. Podés detallar talles, colores y material.
+          </p>
+          <div class="price">
+            Desde <strong>$29.999</strong>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="card">
+          <img
+            src="https://images.pexels.com/photos/6311579/pexels-photo-6311579.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Buzo oversize"
+            class="card-img"
+            style="border-radius:0.8rem; margin-bottom:0.6rem;"
+          />
+          <div class="badge-type">Indumentaria</div>
+          <h3>Buzo Oversize Club</h3>
+          <p>
+            Buzo cómodo, corte oversize y paleta de colores modernos. Perfecto para catálogo de invierno.
+          </p>
+          <div class="price">
+            Desde <strong>$18.500</strong>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="card">
+          <img
+            src="https://images.pexels.com/photos/7671177/pexels-photo-7671177.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Conjunto deportivo"
+            class="card-img"
+            style="border-radius:0.8rem; margin-bottom:0.6rem;"
+          />
+          <div class="badge-type">Combo</div>
+          <h3>Combo Street Pack</h3>
+          <p>
+            Zapatillas + remera + gorra con un mismo estilo. Ideal para promos y lanzamientos.
+          </p>
+          <div class="price">
+            Promo desde <strong>$44.999</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- INVENTARIO SIMPLE POR CATEGORÍA -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="pill">Inventario simple</div>
+          <h2 class="section-title">Resumen por categoría</h2>
+        </div>
+        <p class="section-subtitle">
+          Un modelo más limpio, sin campos de stock, para mostrar cantidades generales y estado de disponibilidad.
+        </p>
+      </div>
+
+      <div class="grid-productos">
+        <!-- Categoría Zapatillas -->
+        <article class="card-producto">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.pexels.com/photos/26720267/pexels-photo-26720267/free-photo-of-zapatillas-nike-air-jordan-en-una-alfombra.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Zapatillas catálogo"
+              class="card-img"
+            />
+            <div class="chip">Zapatillas</div>
+          </div>
+          <div class="card-body">
+            <h2 class="producto-nombre">Sneakers & Running</h2>
+            <p class="producto-desc">
+              Usá esta categoría para agrupar todas tus zapatillas: running, urbanas y edición limitada.
+            </p>
+            <p class="stock-line">
+              Modelos activos: <strong>24</strong> · Colores disponibles: <strong>40+</strong>
+            </p>
+          </div>
+        </article>
+
+        <!-- Categoría Indumentaria -->
+        <article class="card-producto">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.pexels.com/photos/7671168/pexels-photo-7671168.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Indumentaria deportiva"
+              class="card-img"
+            />
+            <div class="chip">Indumentaria</div>
+          </div>
+          <div class="card-body">
+            <h2 class="producto-nombre">Buzos, remeras y joggers</h2>
+            <p class="producto-desc">
+              Sección para prendas urbanas y deportivas: podés detallar talles, fibras, tablas de medidas, etc.
+            </p>
+            <p class="stock-line">
+              Prendas activas: <strong>60</strong> · Talles: <strong>XS al XXL</strong>
+            </p>
+          </div>
+        </article>
+
+        <!-- Categoría Accesorios -->
+        <article class="card-producto">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.pexels.com/photos/7671173/pexels-photo-7671173.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Accesorios deportivos"
+              class="card-img"
+            />
+            <div class="chip">Accesorios</div>
+          </div>
+          <div class="card-body">
+            <h2 class="producto-nombre">Gorras, medias y más</h2>
+            <p class="producto-desc">
+              Ideal para destacar accesorios que complementan tus outfits: gorras, medias, mochilas y bolsos.
+            </p>
+            <p class="stock-line">
+              Artículos activos: <strong>35</strong> · Novedades cada semana
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MENSAJE FINAL -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="pill">Flexibilidad</div>
+          <h2 class="section-title">Un mismo layout, muchas marcas posibles</h2>
+        </div>
+      </div>
+      <p class="section-subtitle">
+        Podés usar esta variante de inventario para una marca de ropa, un showroom multimarca, una tienda de sneakers
+        o cualquier catálogo visual donde el protagonista sea el producto.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2025 Tu Emprendimiento. Plantilla Inventario 2.</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="inventario.html">Inventario 1</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // =============================
+    // MODO CLARO / OSCURO
+    // =============================
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById("themeToggle");
+      const KEY = "site_theme";
+
+      if (!toggle) return;
+
+      function applyTheme(theme) {
+        if (theme === "light") {
+          body.classList.add("light-theme");
+          toggle.textContent = "Modo oscuro";
+        } else {
+          body.classList.remove("light-theme");
+          toggle.textContent = "Modo claro";
+        }
+      }
+
+      const saved = localStorage.getItem(KEY) || "dark";
+      applyTheme(saved);
+
+      toggle.addEventListener("click", () => {
+        const next = body.classList.contains("light-theme") ? "dark" : "light";
+        applyTheme(next);
+        localStorage.setItem(KEY, next);
+      });
+    })();
+  </script>
+</body>
+</html>

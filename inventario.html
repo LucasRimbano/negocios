@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventario demo por rubros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fuente Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        Tu<span>Plantilla</span>
+      </div>
+      <div class="header-actions">
+        <!-- Botón para cambiar tema -->
+        <button class="btn btn-outline" id="themeToggle">Modo claro</button>
+        <a href="index.html" class="btn btn-outline">← Volver al inicio</a>
+      </div>
+    </header>
+
+    <!-- TITULO + RESUMEN -->
+    <section class="top-summary">
+      <div>
+        <div class="pill">Demo multi-rubro</div>
+        <h1 class="page-title">Inventario de ejemplo por rubros</h1>
+        <p class="page-subtitle">
+          Este catálogo muestra diferentes tipos de negocios (ropa, vehículos, tecnología, maquinaria, gastronomía, etc.)
+          para que tus clientes vean que la misma página sirve para cualquier mercado.
+        </p>
+      </div>
+
+      <div class="total-inventario">
+        Total en inventario demo:
+        <strong id="totalInventario">0</strong>
+        unidades
+      </div>
+    </section>
+
+    <!-- GRID DE RUBROS -->
+    <section>
+      <div class="grid-productos" id="gridProductos">
+        <!-- Se completa por JS -->
+      </div>
+    </section>
+
+    <!-- MENSAJE FINAL -->
+    <section class="mensaje-final">
+      <div class="mensaje-card">
+        <h2 class="mensaje-title">No importa qué vendas: esta página se adapta a tu negocio.</h2>
+        <p class="mensaje-texto">
+          Ropa, autos, motos, tecnología, maquinaria, gastronomía, cursos, gimnasios, insumos o servicios profesionales:
+          la misma estructura de catálogo e inventario se puede ajustar a cualquier rubro para ayudarte a mostrar tus
+          productos, organizar tu stock e incrementar tus ventas.
+        </p>
+        <div class="mensaje-lista">
+          <span class="mensaje-tag">Tiendas de ropa</span>
+          <span class="mensaje-tag">Concesionarias</span>
+          <span class="mensaje-tag">Motos y accesorios</span>
+          <span class="mensaje-tag">Tecnología & hardware</span>
+          <span class="mensaje-tag">Maquinaria industrial</span>
+          <span class="mensaje-tag">Gastronomía</span>
+          <span class="mensaje-tag">Gimnasios & fitness</span>
+          <span class="mensaje-tag">Cursos y talleres</span>
+          <span class="mensaje-tag">Mini emprendimientos</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // =============================
+    // MODO CLARO / OSCURO
+    // =============================
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById("themeToggle");
+      const KEY = "site_theme"; // misma clave que en index.html
+
+      if (!toggle) return;
+
+      function applyTheme(theme) {
+        if (theme === "light") {
+          body.classList.add("light-theme");
+          toggle.textContent = "Modo oscuro";
+        } else {
+          body.classList.remove("light-theme");
+          toggle.textContent = "Modo claro";
+        }
+      }
+
+      // Tema guardado o por defecto oscuro
+      const saved = localStorage.getItem(KEY) || "dark";
+      applyTheme(saved);
+
+      toggle.addEventListener("click", () => {
+        const next = body.classList.contains("light-theme") ? "dark" : "light";
+        applyTheme(next);
+        localStorage.setItem(KEY, next);
+      });
+    })();
+
+    // =============================
+    // DEMO DE PRODUCTOS POR RUBRO
+    // =============================
+    const productosBase = [
+      {
+        id: "rubro-ropa",
+        nombre: "Tienda de ropa urbana",
+        descripcion: "Ideal para mostrar colecciones de remeras, buzos, jeans y accesorios.",
+        precio: 9999,
+        stockInicial: 25,
+        chip: "Ropa",
+        imagen: "images/demo-ropa.jpg"
+      },
+      {
+        id: "rubro-motos",
+        nombre: "Concesionaria de motos",
+        descripcion: "Página para exhibir motos nuevas, usadas, accesorios y servicios.",
+        precio: 0,
+        stockInicial: 8,
+        chip: "Motos",
+        imagen: "images/demo-moto.jpg"
+      },
+      {
+        id: "rubro-autos",
+        nombre: "Showroom de autos",
+        descripcion: "Perfecto para autos de alta gama, usados seleccionados o flotas.",
+        precio: 0,
+        stockInicial: 6,
+        chip: "Autos",
+        imagen: "images/demo-autos.jpg"
+      },
+      {
+        id: "rubro-tecno",
+        nombre: "Tecnología y electrónica",
+        descripcion: "Catálogo de notebooks, PCs, celulares, componentes y periféricos.",
+        precio: 0,
+        stockInicial: 40,
+        chip: "Tecnología",
+        imagen: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        id: "rubro-maquinaria",
+        nombre: "Maquinaria industrial",
+        descripcion: "Mostrá equipos, herramientas, repuestos y soluciones de automatización.",
+        precio: 0,
+        stockInicial: 12,
+        chip: "Maquinaria",
+        imagen: "images/demo-maquinaria.jpg"
+      },
+      {
+        id: "rubro-gastro",
+        nombre: "Gastronomía & delivery",
+        descripcion: "Menús, combos, servicios de catering y pedidos online.",
+        precio: 0,
+        stockInicial: 60,
+        chip: "Gastronomía",
+        imagen: "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      {
+        id: "rubro-gimnasio",
+        nombre: "Gimnasio y fitness",
+        descripcion: "Planes, clases, suplementos y accesorios deportivos.",
+        precio: 0,
+        stockInicial: 18,
+        chip: "Gimnasio",
+        imagen: "https://images.pexels.com/photos/1552104/pexels-photo-1552104.jpeg?auto=compress&cs=tinysrgb&w=800"
+      }
+    ];
+
+    const STORAGE_KEY = "inventario_demo_rubros";
+
+    function cargarStocksIniciales() {
+      const guardado = localStorage.getItem(STORAGE_KEY);
+      if (!guardado) {
+        const obj = {};
+        productosBase.forEach(p => {
+          obj[p.id] = p.stockInicial;
+        });
+        return obj;
+      }
+      try {
+        const parsed = JSON.parse(guardado);
+        return parsed;
+      } catch {
+        const obj = {};
+        productosBase.forEach(p => {
+          obj[p.id] = p.stockInicial;
+        });
+        return obj;
+      }
+    }
+
+    function guardarStocks(stocks) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(stocks));
+    }
+
+    const stocks = cargarStocksIniciales();
+    const grid = document.getElementById("gridProductos");
+    const totalInventarioEl = document.getElementById("totalInventario");
+
+    function calcularTotalInventario() {
+      let total = 0;
+      for (const id in stocks) {
+        total += stocks[id] || 0;
+      }
+      totalInventarioEl.textContent = total;
+    }
+
+    function formatearPrecio(valor) {
+      if (!valor || valor === 0) return "Configurable";
+      return "$ " + valor.toLocaleString("es-AR");
+    }
+
+    function crearTarjetaProducto(producto) {
+      const stockActual = stocks[producto.id] ?? producto.stockInicial;
+
+      const card = document.createElement("article");
+      card.className = "card-producto";
+
+      card.innerHTML = `
+        <div class="card-img-wrapper">
+          <img
+            src="${producto.imagen}"
+            alt="${producto.nombre}"
+            class="card-img"
+          />
+          <div class="chip">${producto.chip}</div>
+        </div>
+        <div class="card-body">
+          <h2 class="producto-nombre">${producto.nombre}</h2>
+          <p class="producto-desc">${producto.descripcion}</p>
+          <p class="producto-precio">
+            Tipo de catálogo: <strong>${formatearPrecio(producto.precio)}</strong>
+          </p>
+          <p class="stock-line">
+            Stock demo actual: <strong><span data-stock="${producto.id}">${stockActual}</span> u.</strong>
+          </p>
+
+          <div class="inventario-controls">
+            <div class="inventario-label">
+              Cantidad a agregar a este rubro (demo de inventario):
+            </div>
+            <div class="inventario-input-row">
+              <input
+                type="number"
+                min="0"
+                step="1"
+                class="inventario-input"
+                placeholder="Ej: 5"
+                data-input="${producto.id}"
+              />
+              <button class="btn btn-primary" data-btn="${producto.id}">
+                Agregar
+              </button>
+            </div>
+            <div class="nota-enter">
+              También podés escribir una cantidad y presionar <strong>Enter</strong>.
+            </div>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    }
+
+    function renderProductos() {
+      grid.innerHTML = "";
+      productosBase.forEach(p => crearTarjetaProducto(p));
+    }
+
+    function agregarEventos() {
+      productosBase.forEach(producto => {
+        const input = document.querySelector(`input[data-input="${producto.id}"]`);
+        const btn = document.querySelector(`button[data-btn="${producto.id}"]`);
+
+        function procesar() {
+          const valor = parseInt(input.value, 10);
+
+          if (isNaN(valor) || valor <= 0) {
+            input.value = "";
+            return;
+          }
+
+          const stockActual = stocks[producto.id] ?? producto.stockInicial;
+          const nuevoStock = stockActual + valor;
+          stocks[producto.id] = nuevoStock;
+
+          const stockSpan = document.querySelector(`span[data-stock="${producto.id}"]`);
+          if (stockSpan) stockSpan.textContent = nuevoStock;
+
+          guardarStocks(stocks);
+          calcularTotalInventario();
+
+          input.value = "";
+        }
+
+        if (btn) {
+          btn.addEventListener("click", procesar);
+        }
+
+        if (input) {
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              procesar();
+            }
+          });
+        }
+      });
+    }
+
+    // INIT
+    renderProductos();
+    agregarEventos();
+    calcularTotalInventario();
+  </script>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2025 Tu Plantilla Demo. Inventario multi-rubro.</div>
+      <div>Datos de inventario guardados en este navegador (localStorage).</div>
+    </footer>
+  </div>
+
+</body>
+</html>
